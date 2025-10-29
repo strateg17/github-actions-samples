@@ -107,6 +107,11 @@ jobs:
       run: |
         gcloud container clusters get-credentials "$GKE_CLUSTER" --location "$GKE_REGION"
 
+    - name: Install GKE auth plugin
+      run: |
+        gcloud components install gke-gcloud-auth-plugin --quiet
+        export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
     - name: Create namespace & set in Kustomize
       run: |
          namespacePresentBlue=`kubectl get ns | grep python-app-blue | wc -l`
