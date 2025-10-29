@@ -82,8 +82,8 @@ jobs:
     
     env:
       PROJECT_ID: ${{ secrets.GKE_PROJECT }}
-      GKE_CLUSTER: autopilot-cluster-1    # TODO: update to cluster name
-      GKE_REGION: us-central1	   # TODO: update to cluster region
+      GKE_CLUSTER: ${{ secrets.GKE_CLUSTER }}
+      GKE_REGION: ${{ secrets.GKE_REGION }}
 
     steps:
     - name: Check out code
